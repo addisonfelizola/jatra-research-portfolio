@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>Jatra Research Portfolio - Shangrila Joshi</title>
+<meta name="description" content="Arts of Resilience: a research portfolio on the Rato Macchindranath Jatra of Patan, Nepal, by Shangrila Joshi, PhD.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDE9DB;
+  --ink:#1B1D13;
+  --ink-soft:rgba(27,29,19,.66);
+  --ink-faint:rgba(27,29,19,.42);
+  --line:rgba(27,29,19,.4);
+  --plate:#22241A;
+  --plate-ink:#EDE9DB;
+  --plate-soft:rgba(237,233,219,.62);
+  --red:#A63A24;
+  --pad:24px;
+  --sans:"Archivo",Helvetica,Arial,sans-serif;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14150E;
+    --ink:#ECE7D4;
+    --ink-soft:rgba(236,231,212,.68);
+    --ink-faint:rgba(236,231,212,.44);
+    --line:rgba(236,231,212,.38);
+    --plate:#26281B;
+    --plate-ink:#EDE9DB;
+    --plate-soft:rgba(237,233,219,.62);
+    --red:#D97A5C;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--red);color:#fff}
+a{color:inherit}
+img{max-width:100%}
+
+/* ---------- fixed nav, as on the reference ---------- */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:60;
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding:18px var(--pad);
+  pointer-events:none;
+}
+.nav a,.nav button{pointer-events:auto}
+.nav .brand{
+  font-weight:800;font-size:13px;letter-spacing:.02em;text-transform:uppercase;
+  text-decoration:none;line-height:1.15;
+}
+.nav .brand span{display:block;font-weight:500;color:var(--ink-soft);text-transform:none;letter-spacing:0;font-size:12px}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{
+  font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;
+}
+.nav-links a:hover{text-decoration:underline;text-underline-offset:4px}
+.menu-btn{
+  font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  background:transparent;color:var(--ink);border:1.5px solid var(--ink);border-radius:999px;
+  padding:5px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+}
+.menu-btn .dot{width:7px;height:7px;border-radius:50%;background:var(--ink);display:inline-block}
+.menu-btn:hover{background:var(--ink);color:var(--bg)}
+.menu-btn:hover .dot{background:var(--bg)}
+@media (max-width:760px){ .nav-links a{display:none} .nav-links a.keep{display:inline} }
+
+/* ---------- menu overlay ---------- */
+.overlay{
+  position:fixed;inset:0;z-index:55;background:var(--bg);color:var(--ink);
+  padding:110px var(--pad) 40px;overflow-y:auto;
+  opacity:0;pointer-events:none;transition:opacity .35s ease;
+}
+.overlay.open{opacity:1;pointer-events:auto}
+.overlay .ov-label{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px}
+.overlay nav{display:flex;flex-direction:column}
+.overlay nav a{
+  font-family:var(--serif);font-weight:500;text-decoration:none;
+  font-size:clamp(34px,6vw,64px);line-height:1.12;padding:6px 0;
+  border-bottom:1px dotted var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+}
+.overlay nav a small{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--ink-soft);text-transform:uppercase;white-space:nowrap}
+.overlay nav a:hover{color:var(--red)}
+
+/* ---------- hero ---------- */
+.hero{padding:84px var(--pad) 0}
+.giant{
+  font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:-.015em;
+  white-space:nowrap;display:block;
+}
+.hero .giant{color:var(--ink)}
+.hero-line{
+  text-align:center;font-family:var(--serif);font-size:clamp(19px,2.3vw,27px);font-weight:500;
+  margin-top:26px;
+}
+.hero figure.hero-figure{max-width:400px;margin:64px auto 0}
+.hero-cap{text-align:center;font-family:var(--serif);font-size:clamp(19px,2.3vw,27px);margin-top:44px}
+.down-arrow{text-align:center;font-size:22px;margin:34px 0 8px;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+@media (prefers-reduced-motion: reduce){ .down-arrow{animation:none} }
+
+/* ---------- photo plates ----------
+   Photographs live in the author's Facebook albums. Each plate is an
+   archive frame carrying the photograph's recorded description and,
+   where an individual URL exists, a link to the photograph itself. */
+.plate{
+  background:var(--plate);color:var(--plate-ink);
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:18px;min-height:100%;position:relative;overflow:hidden;
+}
+.plate .p-top{
+  display:flex;justify-content:space-between;gap:12px;
+  font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--plate-soft);
+}
+.plate .p-num{
+  font-weight:900;font-size:clamp(64px,7vw,110px);line-height:1;color:transparent;
+  -webkit-text-stroke:1.5px rgba(237,233,219,.4);margin:18px 0 6px;
+}
+.plate .p-desc{font-family:var(--serif);font-size:clamp(17px,1.5vw,21px);line-height:1.35;font-weight:500}
+.plate .p-link{
+  margin-top:20px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--plate-ink);text-decoration:none;display:inline-flex;gap:8px;align-items:center;
+}
+.plate .p-link:hover{color:var(--red)}
+.plate .p-nolink{margin-top:20px;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--plate-soft)}
+figure.ph{margin:0;display:flex;flex-direction:column}
+figure.ph figcaption{padding-top:12px;text-align:center}
+figure.ph figcaption .cap-name{font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.25}
+figure.ph figcaption .cap-sub{font-size:12px;color:var(--ink-soft);margin-top:3px;letter-spacing:.02em}
+
+/* ---------- intro ---------- */
+.intro{padding:90px var(--pad) 30px;max-width:880px;margin:0 auto}
+.intro p{font-size:clamp(16px,1.45vw,19px);line-height:1.65;font-weight:450;margin-bottom:26px}
+.intro p:last-child{margin-bottom:0}
+.statement{
+  text-align:center;font-family:var(--serif);font-weight:500;
+  font-size:clamp(26px,3.6vw,44px);line-height:1.3;
+  max-width:1000px;margin:0 auto;padding:70px var(--pad) 10px;
+}
+.statement .q-by{display:block;margin-top:26px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ---------- chapter index ---------- */
+.index-sec{padding:80px var(--pad) 20px}
+.index-sec .idx-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.index-sec .idx-head h2{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.index-sec .idx-head span{font-family:var(--serif);font-size:17px;color:var(--ink-soft)}
+.idx-row{
+  display:flex;align-items:baseline;gap:14px;text-decoration:none;
+  padding:16px 0;border-bottom:1px dotted var(--line);
+}
+.idx-row .idx-no{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--red);min-width:34px}
+.idx-row .idx-title{font-family:var(--serif);font-size:clamp(24px,3.4vw,40px);font-weight:600;line-height:1.1}
+.idx-row .idx-dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-6px);min-width:24px}
+.idx-row .idx-meta{font-size:12.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);text-align:right}
+.idx-row:hover .idx-title{color:var(--red)}
+
+/* ---------- chapters ---------- */
+.chapter{padding:110px var(--pad) 30px}
+.chapter .giant{margin-left:-4px}
+.meta-row{
+  display:flex;align-items:baseline;gap:16px;margin-top:14px;
+  font-family:var(--serif);font-size:clamp(17px,1.9vw,23px);font-weight:500;
+}
+.meta-row .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-5px);min-width:30px}
+.meta-row .right{text-align:right}
+.chapter .body{max-width:760px;margin:54px auto 0}
+.chapter .body p{font-size:clamp(16px,1.4vw,18.5px);line-height:1.68;margin-bottom:24px;font-weight:450}
+.chapter .body p.lede{font-family:var(--serif);font-size:clamp(20px,2vw,25px);line-height:1.45;font-weight:500}
+.chapter .body p:last-child{margin-bottom:0}
+
+/* photo grids, staggered like the reference */
+.pgrid{display:grid;gap:20px;margin-top:56px}
+.pgrid.c2{grid-template-columns:1.25fr 1fr}
+.pgrid.c3{grid-template-columns:repeat(3,1fr)}
+.pgrid.c3 figure.ph:nth-child(2){margin-top:56px}
+.pgrid.c3 figure.ph:nth-child(3){margin-top:112px}
+.pgrid.c2 figure.ph:nth-child(2){margin-top:64px}
+.pgrid .ar-wide{aspect-ratio:4/3}
+.pgrid .ar-tall{aspect-ratio:3/4}
+.pgrid .ar-sq{aspect-ratio:1/1}
+@media (max-width:860px){
+  .pgrid.c2,.pgrid.c3{grid-template-columns:1fr}
+  .pgrid.c3 figure.ph:nth-child(2),.pgrid.c3 figure.ph:nth-child(3),.pgrid.c2 figure.ph:nth-child(2){margin-top:0}
+  .pgrid .ar-wide,.pgrid .ar-tall,.pgrid .ar-sq{aspect-ratio:4/3}
+}
+
+/* guthi grid, Chapter 3 */
+.guthi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 28px;margin-top:56px}
+.guthi{border-top:2px solid var(--ink);padding-top:14px}
+.guthi:nth-child(3n+2){margin-top:44px}
+.guthi:nth-child(3n){margin-top:88px}
+.guthi h3{font-family:var(--serif);font-size:clamp(23px,2.2vw,30px);font-weight:600;line-height:1.15}
+.guthi .g-role{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin:6px 0 10px}
+.guthi p{font-size:14.5px;line-height:1.6;color:var(--ink-soft);font-weight:450}
+@media (max-width:860px){
+  .guthi-grid{grid-template-columns:1fr}
+  .guthi:nth-child(3n+2),.guthi:nth-child(3n){margin-top:0}
+}
+
+/* methods list, Chapter 8 */
+.methods{max-width:860px;margin:56px auto 0}
+.method-row{display:flex;align-items:baseline;gap:16px;padding:18px 0;border-bottom:1px dotted var(--line)}
+.method-row:first-child{border-top:2px solid var(--ink)}
+.method-row .m-name{font-family:var(--serif);font-size:clamp(21px,2.4vw,29px);font-weight:600}
+.method-row .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-5px);min-width:24px}
+.method-row .m-note{font-size:13.5px;color:var(--ink-soft);text-align:right;max-width:300px;line-height:1.5}
+blockquote.voice{
+  max-width:820px;margin:64px auto 0;font-family:var(--serif);
+  font-size:clamp(20px,2.3vw,27px);line-height:1.5;font-weight:500;text-align:center;
+}
+blockquote.voice footer{margin-top:20px;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* albums */
+.albums{padding:100px var(--pad) 10px}
+.albums h2{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:6px}
+.album-row{display:flex;align-items:baseline;gap:16px;padding:20px 0;border-bottom:1px dotted var(--line);text-decoration:none}
+.album-row .a-name{font-family:var(--serif);font-size:clamp(22px,2.8vw,34px);font-weight:600}
+.album-row .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-5px);min-width:24px}
+.album-row .a-meta{font-size:12.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);text-align:right}
+.album-row:hover .a-name{color:var(--red)}
+
+/* footer */
+.site-foot{padding:110px var(--pad) 34px}
+.site-foot .giant{color:var(--ink)}
+.foot-row{display:flex;align-items:baseline;gap:16px;font-family:var(--serif);font-size:clamp(16px,1.8vw,21px);margin-top:12px}
+.foot-row .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-5px);min-width:24px}
+.foot-small{
+  display:flex;flex-wrap:wrap;gap:10px 34px;justify-content:space-between;
+  margin-top:56px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--ink-soft);line-height:1.6;
+}
+.foot-small a{color:var(--ink);text-decoration:none;font-weight:600}
+.foot-small a:hover{color:var(--red)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){ .rv{opacity:1;transform:none;transition:none} }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="#top">Shangrila Joshi<span>The Evergreen State College</span></a>
+  <div class="nav-links">
+    <a href="#chapter-1">The Jatra</a>
+    <a href="#chapters">Chapters</a>
+    <a href="#chapter-8" class="keep">The Research</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="overlay">Menu <span class="dot"></span></button>
+  </div>
+</header>
+
+<div class="overlay" id="overlay" aria-hidden="true">
+  <p class="ov-label">Eight chapters - Patan, Nepal, 2081</p>
+  <nav id="overlayNav"></nav>
+</div>
+
+<main id="top">
+
+  <!-- HERO, after the reference: one giant line, one quiet line, one photograph -->
+  <section class="hero">
+    <h1 class="giant" data-fit>KARUNAMAYA</h1>
+    <p class="hero-line">The Rato Macchindranath Rath Yatra of Patan, Nepal</p>
+    <figure class="ph hero-figure">
+      <div class="plate ar-tall" style="aspect-ratio:3/4" id="heroPlate"></div>
+      <figcaption>
+        <div class="cap-name">The chariot at sunset</div>
+        <div class="cap-sub">Album 3, Rath Yatra procession - first photograph</div>
+      </figcaption>
+    </figure>
+    <p class="hero-cap">Every spring, a city prays for rain.</p>
+    <div class="down-arrow" aria-hidden="true">&#8595;</div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro rv">
+    <p>The tangible impacts of a changing climate have become more pronounced in recent years, and the implications for the Himalaya are significant: more frequent and intense droughts, weather and agricultural anomalies, and consequences for water, food, and livelihood security. Mountain communities are particularly vulnerable, dependent as they are on rapidly melting glaciers for drinking water and agriculture.</p>
+    <p>This portfolio follows one answer that is already more than a thousand years old. Among the cultural practices of the Newa, the Indigenous people of the Kathmandu Valley, is the Machchhindranath Jatra: a months-long annual festival celebrated to thwart catastrophic drought and famine, and a living record of how a community organises itself to survive catastrophe, together.</p>
+    <p>The photographs were taken by the author during the Jatra of Nepali year 2081 (2024) in Patan, also known as Lalitpur. They are held in three public albums on Facebook; each frame in this portfolio carries the description recorded during the review of those albums and links to the photograph itself.</p>
+  </section>
+
+  <p class="statement rv">&ldquo;How does the Machchhindranath Jatra teach us to be resilient in the face of a changing climate?&rdquo;
+    <span class="q-by">The research question - Shangrila Joshi, PhD</span>
+  </p>
+
+  <!-- CHAPTER INDEX -->
+  <section class="index-sec" id="chapters">
+    <div class="idx-head"><h2>Chapters</h2><span>Eight chapters, one festival</span></div>
+    <div id="indexList"></div>
+  </section>
+
+  <!-- CHAPTERS RENDER HERE -->
+  <div id="chaptersRoot"></div>
+
+  <!-- ALBUMS -->
+  <section class="albums rv">
+    <h2>The fieldwork albums - photographs by Shangrila Joshi</h2>
+    <a class="album-row" href="https://www.facebook.com/share/18nexstt2w/" target="_blank" rel="noopener">
+      <span class="a-name">Album 1 - Chariot building</span><span class="dots"></span><span class="a-meta">241 photographs - Facebook</span>
+    </a>
+    <a class="album-row" href="https://www.facebook.com/share/1DeAJnantG/" target="_blank" rel="noopener">
+      <span class="a-name">Album 2 - Tantric puja rituals to Ratharohan</span><span class="dots"></span><span class="a-meta">113 photographs - Facebook</span>
+    </a>
+    <a class="album-row" href="https://www.facebook.com/share/1CH8MVJJWo/" target="_blank" rel="noopener">
+      <span class="a-name">Album 3 - Rath Yatra procession, Pulchowk to Thati</span><span class="dots"></span><span class="a-meta">269 photographs - Facebook</span>
+    </a>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <span class="giant" data-fit>JATRA</span>
+  <div class="foot-row"><span>Arts of Resilience</span><span class="dots"></span><span class="right">Lessons from the Machchhindranath Jatra of Patan</span></div>
+  <div class="foot-small">
+    <span>Shangrila Joshi, PhD - Faculty, The Evergreen State College, Olympia<br>Book project in progress. Photographs by the author, Patan, Nepal, 2081 (2024).</span>
+    <span><a href="mailto:joshis@evergreen.edu">joshis@evergreen.edu</a><br><a href="#top">Back to top</a></span>
+  </div>
+</footer>
+
+<script>
+/* ================================================================
+   CONTENT MODEL - edit here to swap photographs or chapters.
+   Each photo: desc (recorded description, used verbatim),
+   album (1, 2 or 3), pos (position recorded in the album review),
+   url (the photograph's Facebook URL, or null where none was recorded).
+   ================================================================ */
+var ALBUM_NAMES = {1:"Album 1 - Chariot building", 2:"Album 2 - Tantric puja", 3:"Album 3 - Rath Yatra procession"};
+
+var CHAPTERS = [
+{
+  n:"01", title:"THE STORY", indexMeta:"Seventh century - Kamarup, Assam",
+  metaLeft:"Chapter 01 - The origin myth", metaRight:"A twelve-year drought",
+  lede:"The Jatra begins with a catastrophe: twelve years without rain.",
+  body:[
+    "According to Newa mythology, the festival was initiated in response to a twelve-year drought during the seventh century AD. The nagas, the serpent beings believed to be responsible for rain, had been bound by Gorakhnath, a disciple of Machchhindranath, who sat atop them in retribution after a slight in a liquor shop, and so the rains stopped.",
+    "Lichchhavi King Narendra Dev, in consultation with a tantric Bajracharya priest and a Jyapu farmer, decreed that Machchhindranath be summoned from his abode in Kamarup, Assam, to cure the valley of its prolonged drought. His arrival, in the form of a bee, prompted Gorakhnath to stand in deference, the nagas were freed, and the monsoon rains and bountiful harvests returned.",
+    "To this day the Jatra elicits the participation of hundreds of thousands of worshippers every spring, who pray for rain, which falls on the day the festival kicks off in April or May. It is a tradition that has stood the test of time."
+  ],
+  photos:[
+    {desc:"Towering chariot spire silhouetted against a low sun with lens flare, carved face at its base, Patan rooftops behind.", album:3, pos:"First photograph", url:"https://www.facebook.com/photo/?fbid=10160717667394930&set=a.10160717440079930"},
+    {desc:"Two huge black cauldrons steaming over open fires in a brick courtyard.", album:1, pos:"Early, around photo 7", url:"https://www.facebook.com/photo?fbid=10160717311654930&set=pcb.10160717486099930"},
+    {desc:"Low-angle view straight up the green rattan spire with gold trim and red flags against the sky, golden shrine at its foot.", album:3, pos:"Early, around photo 26", url:"https://www.facebook.com/photo/?fbid=10160717669374930&set=a.10160717440079930"},
+    {desc:"Night-time street puja at the foot of the chariot, a man in a topi bending over offering baskets and lamps laid on wet asphalt, onlookers and headlights behind.", album:2, pos:"Late, around photo 61", url:"https://www.facebook.com/photo/?fbid=10160717601789930&set=a.10160717654509930"},
+    {desc:"A man sitting alone under a tree beside the old brick temple.", album:2, pos:"Middle, album grid", url:null}
+  ]
+},
+{
+  n:"02", title:"THE DEITY", indexMeta:"Karunamaya - Bungdyah",
+  metaLeft:"Chapter 02 - Machchhindranath", metaRight:"Bringer of the monsoon",
+  lede:"One deity, many names, held in common by Hindus and Buddhists alike.",
+  body:[
+    "The Jatra is worship of a powerful deity variously known as Machchhindranath, the Fish Lord, by Hindu worshippers; as Avalokiteswor and Karunamaya, the Compassionate One, by Buddhist worshippers; and as Bungdyah in Newa Bhaye, the vernacular spoken by both groups.",
+    "The deity is known to bring the monsoon rains, bountiful harvests, and overall well-being, as well as protection from catastrophic events and suffering. Karunamaya is believed to ensure the well-being of the nation, and anything that goes awry during the Jatra is held to portend misfortune, one reason the tradition is kept with such care and significant resources are dedicated to its smooth functioning.",
+    "Between festivals the deity is housed in Machchhindrabahal, also called Tabahal, in Patan."
+  ],
+  photos:[
+    {desc:"Full-frame portrait of the red-painted deity against an old brick wall, painted face, gold forehead ornament, beaded necklace, red sari, metal armlets.", album:2, pos:"Late, around photo 81", url:"https://www.facebook.com/photo/?fbid=10160717633774930&set=a.10160717654509930"},
+    {desc:"Two men in red sashes seated inside the chariot shrine, the deity behind them garlanded with marigolds and crowned with flowers, a temple bell at right.", album:3, pos:"Late, around photo 226", url:"https://www.facebook.com/photo/?fbid=10160717706454930&set=a.10160717440079930"},
+    {desc:"Woman in a red sari in the shrine doorway, a priest in a white dhoti seated before the red-and-gold deity, butter lamps burning.", album:2, pos:"Middle, around photo 41", url:"https://www.facebook.com/photo/?fbid=10160717599729930&set=a.10160717654509930"},
+    {desc:"Close-ups of the painted deity in the temple, pink and red face, jewellery and cloth.", album:2, pos:"Early, album grid", url:null},
+    {desc:"A colourful painted image of the deity, blue face with snakes.", album:2, pos:"Middle, album grid", url:null},
+    {desc:"The deity inside its golden shrine on the chariot, seen through the crowd.", album:3, pos:"Early, album grid", url:null}
+  ]
+},
+{
+  n:"03", title:"THE PEOPLE", indexMeta:"The guthi groups",
+  metaLeft:"Chapter 03 - Hereditary roles", metaRight:"Nine groups, one chariot",
+  lede:"No single group can hold the Jatra. It takes all of them, each doing the work their ancestors did.",
+  body:[
+    "The successful execution of the Jatra is made possible by a tremendous degree of collaboration and sophisticated planning among the guthi groups, each performing their ancestral duties with precision to pull off the gargantuan task of constructing the sacred wood-and-rattan chariot and taking it on procession through the historic town.",
+    "One Barahi interviewee described the closeness of the groups who build the chariot with the metaphor nang ra masu, flesh and nail: a mutual interdependence without which the chariot might not withstand its journey."
+  ],
+  guthi:[
+    {name:"Yanwa", role:"Rattan frame", text:"Jyapu, Maharjan and Dangol members who construct the main frame of the chariot and its many accoutrements every year from rattan vine, an intricate art of building a structure that is resilient yet flexible. They later guide the chariot through the city from their perch atop it, a privilege afforded to no one outside the group."},
+    {name:"Barahi", role:"Wood and wheels", text:"Wood carvers and craftsmen who construct the wooden structures of the chariot frame and the gigantic wooden wheels on which it rests and moves. Students of architecture and engineering visit Barahi elders to study traditional design, particularly for earthquake-resistant structures."},
+    {name:"Ghakku", role:"The brakes", text:"Byanjankar and Maharjan members who apply the brakes under the chariot's wooden wheels during the procession, a highly risky position that is known to lead to injury and death. The current group is formed entirely of new entrants, initiated after the original descendants gave up the role."},
+    {name:"Panaju", role:"Tantric priests", text:"Priests from the Shakya and Bajracharya groups, holders of esoteric tantric knowledge, who perform the rituals and ceremonies at the center of the tradition and sanctify the spaces where the chariot is constructed and the deity mounted. Thirty-one active members rotate into different roles every fifteen days."},
+    {name:"Nheku", role:"The painters", text:"Painters who recreate the deity's sculpture with a fresh coat of paint every year, using traditional ingredients including the gelatinous boiled scales of fish, and clay from Mheypi, near Balaju, Kathmandu."},
+    {name:"Jyotish", role:"The astrologers", text:"Astrologers of the Joshi caste who identify the auspicious dates for the procession, based on the luni-solar Bikram Sambat calendar. Their word can pause the festival: abiding by such constraints is deemed crucial, since a Jatra that goes awry portends disaster."},
+    {name:"Bosi", role:"Trees and vines", text:"The group whose task it is to harvest the appropriate trees and vines from forests in and around the Kathmandu Valley, as well as from Assam, India, for the construction of the chariot."},
+    {name:"Ranjitkars", role:"Cloth banners", text:"The group who prepare the cloth banners that hang down from the pinnacle of the chariot."},
+    {name:"Musicians", role:"Dhimay and bhajan", text:"Musical performers in many forms: local tole associations that process alongside the Jatra playing dhimay drums, and bhajan mandal groups that sing hymns with traditional instruments in the temple premises and at each resting place of the procession."}
+  ],
+  photos:[
+    {desc:"A young boy holding a wooden mallet, stacks of timber behind him, blue-shirted crew watching.", album:1, pos:"Early to middle, around photo 22", url:"https://www.facebook.com/photo?fbid=10160717315289930&set=pcb.10160717486099930"},
+    {desc:"Crew in matching blue hoodies and red caps gathered around the chariot base in the street, modern Patan buildings behind.", album:1, pos:"Middle, around photo 62", url:"https://www.facebook.com/photo/?fbid=10160717318944930&set=pcb.10160717486099930"},
+    {desc:"Close-up of a masked, cap-wearing man securing thick rattan lashing to the timber frame, an older man watching.", album:1, pos:"Middle, around photo 42", url:"https://www.facebook.com/photo/?fbid=10160717317109930&set=pcb.10160717486099930"},
+    {desc:"An elder in a Dhaka topi and a young man playing large black dhime drums together by lamplight in the brick temple.", album:2, pos:"Early to middle, around photo 21", url:"https://www.facebook.com/photo/?fbid=10160717597849930&set=a.10160717654509930"},
+    {desc:"A woman in pink and red crouching to arrange butter lamps on trays inside the ornate shrine doorway, deity and priest behind her.", album:2, pos:"First photograph", url:"https://www.facebook.com/photo/?fbid=10160717595669930&set=a.10160717654509930"},
+    {desc:"Paired portraits of women in traditional dress, pink and green saris, and men in topis at the building site.", album:1, pos:"Middle, album grid", url:null}
+  ]
+},
+{
+  n:"04", title:"THE CHARIOT", indexMeta:"Pulchowk, Patan",
+  metaLeft:"Chapter 04 - Building the chariot", metaRight:"Rattan, timber, rope",
+  lede:"A tower of wood and vine, built by hand in the street, strong enough to carry a god and flexible enough to survive the journey.",
+  body:[
+    "The chariot is constructed in Pulchowk, Patan. The Yanwa build the main frame and its many accoutrements from rattan vine. There is an intricate art to building a structure that is resilient yet flexible, and it is lashed, not nailed, so that it can move.",
+    "The Barahi build the wooden structures that constitute the frame, and the gigantic wooden wheels on which the chariot rests and ambulates. The Bosi supply the raw material, harvesting the appropriate trees and vines from forests in and around the Kathmandu Valley and from Assam.",
+    "Each chariot is a veritable work of art, and the whole undertaking nothing short of a sophisticated and elaborate interdisciplinary arts endeavor."
+  ],
+  photos:[
+    {desc:"Two huge painted orange wheels with green-and-red eye motifs, a man standing between them in the street.", album:1, pos:"First photograph in the viewer", url:"https://www.facebook.com/photo?fbid=10160717310974930&set=pcb.10160717486099930"},
+    {desc:"The massive wooden axle and wheels from a low angle, men seated at the background shops.", album:1, pos:"Second photograph in the viewer", url:"https://www.facebook.com/photo?fbid=10160717311004930&set=pcb.10160717486099930"},
+    {desc:"Close-up of a masked, cap-wearing man securing thick rattan lashing to the timber frame, an older man watching.", album:1, pos:"Middle, around photo 42", url:"https://www.facebook.com/photo/?fbid=10160717317109930&set=pcb.10160717486099930"},
+    {desc:"Wide shot of the tall chariot tower frame filling the street, workers on top and a pink building behind.", album:1, pos:"Early, album grid", url:null},
+    {desc:"Two huge black cauldrons steaming over open fires in a brick courtyard.", album:1, pos:"Early, around photo 7", url:"https://www.facebook.com/photo?fbid=10160717311654930&set=pcb.10160717486099930"},
+    {desc:"Crew in matching blue hoodies and red caps gathered around the chariot base in the street, modern Patan buildings behind.", album:1, pos:"Middle, around photo 62", url:"https://www.facebook.com/photo/?fbid=10160717318944930&set=pcb.10160717486099930"}
+  ]
+},
+{
+  n:"05", title:"THE RITUALS", indexMeta:"Puja to Ratharohan",
+  metaLeft:"Chapter 05 - Tantric puja", metaRight:"Machchhindrabahal",
+  lede:"Before the deity can travel, he must be painted, sanctified, and mounted, in that order, on the right day.",
+  body:[
+    "The Panaju perform the extensive religious rituals and ceremonies at the center of the tradition. The tantric rituals are regarded as highly powerful, to the extent that they can influence climatic conditions: some are designed to ensure the monsoon rains arrive in a timely manner, and one, performed at Kuruwa Daha along the banks of the Bagmati, is designed to protect the country from storms.",
+    "Core members of the Jatra guthis adhere to a strict regimen during the festival, refraining from foods such as meat, garlic and onions and maintaining ritual purity out of respect for the powerful deity.",
+    "The Nheku repaint the deity each year before the mounting, the Ratharohan, when the deity is placed in the shrine of the finished chariot. While Machchhindranath is painted, the Bramhakwon version of the deity is attended by Panaju in Machhindrabahal."
+  ],
+  photos:[
+    {desc:"A woman in pink and red crouching to arrange butter lamps on trays inside the ornate shrine doorway, deity and priest behind her.", album:2, pos:"First photograph", url:"https://www.facebook.com/photo/?fbid=10160717595669930&set=a.10160717654509930"},
+    {desc:"Woman in a red sari in the shrine doorway, a priest in a white dhoti seated before the red-and-gold deity, butter lamps burning.", album:2, pos:"Middle, around photo 41", url:"https://www.facebook.com/photo/?fbid=10160717599729930&set=a.10160717654509930"},
+    {desc:"An elder in a Dhaka topi and a young man playing large black dhime drums together by lamplight in the brick temple.", album:2, pos:"Early to middle, around photo 21", url:"https://www.facebook.com/photo/?fbid=10160717597849930&set=a.10160717654509930"},
+    {desc:"Night-time street puja at the foot of the chariot, a man in a topi bending over offering baskets and lamps laid on wet asphalt, onlookers and headlights behind.", album:2, pos:"Late, around photo 61", url:"https://www.facebook.com/photo/?fbid=10160717601789930&set=a.10160717654509930"},
+    {desc:"Rows of butter lamps burning.", album:2, pos:"Middle, album grid", url:null},
+    {desc:"Bronze statues in the iron-cage shrine; the deity being painted, and a priest in a yellow dhoti at the shrine.", album:2, pos:"Middle and late, album grid", url:null}
+  ]
+},
+{
+  n:"06", title:"THE PROCESSION", indexMeta:"Pulchowk to Thati",
+  metaLeft:"Chapter 06 - Rath Yatra", metaRight:"May 2081 (2024)",
+  lede:"Then the whole city takes hold of the ropes.",
+  body:[
+    "After the chariot is built and the deity mounted, the procession begins. Yanwa members guide the chariot on its journey through the city, through treacherously narrow streets and alleys lined with increasingly tall residential buildings, which makes their job both challenging and dangerous.",
+    "Hundreds of thousands of devotees pay their respects along the route and perform their own community functions in tandem with the Jatra's timeline. Local associations process alongside, playing dhimay drums, and bhajan mandal groups sing at each place where the procession rests.",
+    "In 2024 the Jyotish determined there were no auspicious dates between May 30 and July 30, creating a dormant period of two months before the last leg of the procession could be carried out. The festival simply waited."
+  ],
+  photos:[
+    {desc:"The full chariot in bright daylight, the thick pulling rope running down the centre of the frame, men climbing the spire, onlookers in purple headscarves.", album:3, pos:"Middle, around photo 76", url:"https://www.facebook.com/photo/?fbid=10160717685869930&set=a.10160717440079930"},
+    {desc:"Close view of a huge orange wheel and timber frame filling a narrow Patan lane, a woman in a green and red sari reaching up with an offering, a man photographing.", album:3, pos:"Middle, around photo 126", url:"https://www.facebook.com/photo/?fbid=10160717689334930&set=a.10160717440079930"},
+    {desc:"The spire draped in red-and-gold ribbons squeezing past apartment balconies packed with spectators.", album:3, pos:"Late, around photo 176", url:"https://www.facebook.com/photo/?fbid=10160717702549930&set=a.10160717440079930"},
+    {desc:"Low-angle view straight up the green rattan spire with gold trim and red flags against the sky, golden shrine at its foot.", album:3, pos:"Early, around photo 26", url:"https://www.facebook.com/photo/?fbid=10160717669374930&set=a.10160717440079930"},
+    {desc:"Two men in red sashes seated inside the chariot shrine, the deity behind them garlanded with marigolds and crowned with flowers, a temple bell at right.", album:3, pos:"Late, around photo 226", url:"https://www.facebook.com/photo/?fbid=10160717706454930&set=a.10160717440079930"},
+    {desc:"Dense street crowds with police helmets and raised cameras around the chariot.", album:3, pos:"Early, album grid", url:null}
+  ]
+},
+{
+  n:"07", title:"RESILIENCE", indexMeta:"The book argument",
+  metaLeft:"Chapter 07 - Arts of Resilience", metaRight:"The guthi at the heart",
+  lede:"Resilience is an art, and this festival is its annual rehearsal.",
+  body:[
+    "The Jatra serves as a microcosm of a sustainable and resilient society. A successful Jatra implies that the different organs of society are functioning as they should, with the guthi functioning at its heart. In the event of a crisis, this social cohesion serves to prevent the worst consequences, making society more resilient to disasters.",
+    "The guthi is an Indigenous institution of resource governance, self-governing before 1768, whose lands were appropriated and placed under the state Guthi Sansthan. It survives today in pared-down form, held in the realm of cultural preservation, and its survival carries the possibility of resurgence to a fuller form. The longevity of the Machchhindranath tradition owes to the survivance of the guthi.",
+    "The continuity of this annual tradition over centuries exemplifies the importance of periodic reminders to a people of how their ancestors survived a catastrophe, in order to remain resilient. The book project seeks to glean insights from this practice to begin to articulate a theory of Newa climate epistemology, contributing to the scholarship on Indigenous practices and their relevance for building a climate resilient world."
+  ],
+  photos:[
+    {desc:"The full chariot in bright daylight, the thick pulling rope running down the centre of the frame, men climbing the spire, onlookers in purple headscarves.", album:3, pos:"Middle, around photo 76", url:"https://www.facebook.com/photo/?fbid=10160717685869930&set=a.10160717440079930"},
+    {desc:"The spire draped in red-and-gold ribbons squeezing past apartment balconies packed with spectators.", album:3, pos:"Late, around photo 176", url:"https://www.facebook.com/photo/?fbid=10160717702549930&set=a.10160717440079930"},
+    {desc:"Crew in matching blue hoodies and red caps gathered around the chariot base in the street, modern Patan buildings behind.", album:1, pos:"Middle, around photo 62", url:"https://www.facebook.com/photo/?fbid=10160717318944930&set=pcb.10160717486099930"},
+    {desc:"Close view of a huge orange wheel and timber frame filling a narrow Patan lane, a woman in a green and red sari reaching up with an offering, a man photographing.", album:3, pos:"Middle, around photo 126", url:"https://www.facebook.com/photo/?fbid=10160717689334930&set=a.10160717440079930"},
+    {desc:"The widest crowd panoramas with the spire leaning over the street.", album:3, pos:"Early, album grid", url:null}
+  ]
+},
+{
+  n:"08", title:"THE RESEARCH", indexMeta:"Methods and position",
+  metaLeft:"Chapter 08 - The book in progress", metaRight:"Fieldwork 2024 to 2026",
+  lede:"A study of the Jatra, by a researcher who grew up watching it.",
+  body:[
+    "The project addresses its research question through qualitative methods, and through ethnographic research completed between April 2024 and July 2026, including participant observation of the 2081 and 2082 Jatras and semi-structured interviews with key informants from within the Jatra's core communities.",
+    "The resulting book, Arts of Resilience: Lessons from the Machchhindranath Jatra of Patan, will contribute to understanding the mythological, ecological, and socio-political elements of the Jatra, and to the growing body of scholarship on Indigenous practices and climate resilience, focusing on a Himalayan community whose traditional ecological knowledge remains largely unexamined in the published literature."
+  ],
+  methods:[
+    {name:"Textual analysis", note:"Mythology and chronicles of the Jatra tradition"},
+    {name:"Ethnographic participant observation", note:"The 2081 and 2082 Jatras, April 2024 to July 2026"},
+    {name:"Oral history", note:"Accounts held by the Jatra's core communities"},
+    {name:"Focus group interviews", note:"With key informants from the guthi groups"}
+  ],
+  quote:"As a Newa American who has lived experience growing up with this tradition, and is fluent in Newa Bhaye, I have the benefit of insider access as a researcher, and yet, as someone whose extended family's engagement with the Jatra has always been as general members of the worshipping public, with no role in any of the core groups or functions, I am also in many ways an outsider. This hybrid insider and outsider status helps me exercise a healthy level of detachment for the scholarly endeavor while affording me the ability to understand the cultural nuances in what I observe and hear.",
+  quoteBy:"Shangrila Joshi, from the project statement",
+  about:"Dr. Shangrila Joshi teaches Environmental Studies at The Evergreen State College, Olympia, with a focus on climate justice and commons governance. Her book Climate Change Justice and Global Resource Commons was published by Routledge in 2021, and she has contributed invited chapters to Climate, Science, and Society: A Primer, the Handbook of Global Environmental Politics, and the Handbook of Political Ecology.",
+  photos:[]
+}
+];
+
+/* ---------- rendering ---------- */
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+var AR = ["ar-tall","ar-wide","ar-sq","ar-wide","ar-tall","ar-sq"];
+
+function plateHTML(p, idx){
+  var link = p.url
+    ? '<a class="p-link" href="'+p.url+'" target="_blank" rel="noopener">View the photograph <span aria-hidden="true">&#8599;</span></a>'
+    : '<span class="p-nolink">Frame held - individual link not recorded</span>';
+  return '<div class="plate '+AR[idx%AR.length]+'">'
+    + '<div class="p-top"><span>'+esc(ALBUM_NAMES[p.album])+'</span><span>'+esc(p.pos)+'</span></div>'
+    + '<div><div class="p-num" aria-hidden="true">'+(idx+1)+'</div><p class="p-desc">'+esc(p.desc)+'</p>'+link+'</div>'
+    + '</div>';
+}
+function figureHTML(p, idx){
+  return '<figure class="ph rv"><div>'+plateHTML(p, idx)+'</div>'
+    + '<figcaption><div class="cap-name">'+esc(p.desc.split(",")[0])+'.</div>'
+    + '<div class="cap-sub">'+esc(ALBUM_NAMES[p.album])+' - '+esc(p.pos)+'</div></figcaption></figure>';
+}
+
+var root = document.getElementById("chaptersRoot");
+var indexList = document.getElementById("indexList");
+var overlayNav = document.getElementById("overlayNav");
+var html = "";
+
+CHAPTERS.forEach(function(ch){
+  indexList.innerHTML += '<a class="idx-row" href="#chapter-'+ch.n.replace(/^0/,"")+'"><span class="idx-no">'+ch.n+'</span><span class="idx-title">'+esc(ch.title.charAt(0)+ch.title.slice(1).toLowerCase())+'</span><span class="idx-dots"></span><span class="idx-meta">'+esc(ch.indexMeta)+'</span></a>';
+  overlayNav.innerHTML += '<a href="#chapter-'+ch.n.replace(/^0/,"")+'">'+esc(ch.title.charAt(0)+ch.title.slice(1).toLowerCase())+'<small>Chapter '+ch.n+'</small></a>';
+
+  html += '<section class="chapter" id="chapter-'+ch.n.replace(/^0/,"")+'">'
+    + '<h2 class="giant" data-fit>'+esc(ch.title)+'</h2>'
+    + '<div class="meta-row"><span>'+esc(ch.metaLeft)+'</span><span class="dots"></span><span class="right">'+esc(ch.metaRight)+'</span></div>'
+    + '<div class="body"><p class="lede">'+esc(ch.lede)+'</p>'
+    + ch.body.map(function(p){return '<p>'+esc(p)+'</p>';}).join("")
+    + '</div>';
+
+  if (ch.guthi){
+    html += '<div class="guthi-grid">' + ch.guthi.map(function(g){
+      return '<article class="guthi rv"><h3>'+esc(g.name)+'</h3><p class="g-role">'+esc(g.role)+'</p><p>'+esc(g.text)+'</p></article>';
+    }).join("") + '</div>';
+  }
+  if (ch.methods){
+    html += '<div class="methods">' + ch.methods.map(function(m){
+      return '<div class="method-row"><span class="m-name">'+esc(m.name)+'</span><span class="dots"></span><span class="m-note">'+esc(m.note)+'</span></div>';
+    }).join("") + '</div>';
+  }
+  if (ch.quote){
+    html += '<blockquote class="voice rv">&ldquo;'+esc(ch.quote)+'&rdquo;<footer>'+esc(ch.quoteBy)+'</footer></blockquote>';
+  }
+  if (ch.about){
+    html += '<div class="body"><p>'+esc(ch.about)+'</p><p>Contact: <a href="mailto:joshis@evergreen.edu">joshis@evergreen.edu</a></p></div>';
+  }
+  if (ch.photos && ch.photos.length){
+    var cls = ch.photos.length <= 4 ? "c2" : "c3";
+    html += '<div class="pgrid '+cls+'">' + ch.photos.map(figureHTML).join("") + '</div>';
+  }
+  html += '</section>';
+});
+root.innerHTML = html;
+
+/* hero plate = the sun-flare spire photograph, Chapter 1, photo 1 */
+document.getElementById("heroPlate").innerHTML =
+  '<div class="p-top"><span>Album 3 - Rath Yatra procession</span><span>First photograph</span></div>'
+  + '<div><div class="p-num" aria-hidden="true">1</div><p class="p-desc">Towering chariot spire silhouetted against a low sun with lens flare, carved face at its base, Patan rooftops behind.</p>'
+  + '<a class="p-link" href="https://www.facebook.com/photo/?fbid=10160717667394930&set=a.10160717440079930" target="_blank" rel="noopener">View the photograph <span aria-hidden="true">&#8599;</span></a></div>';
+
+/* ---------- fit giant titles to full width, as on the reference ---------- */
+function fitGiants(){
+  document.querySelectorAll("[data-fit]").forEach(function(el){
+    var cs = getComputedStyle(el.parentElement);
+    var cw = el.parentElement.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - 2;
+    el.style.display = "inline-block";
+    el.style.fontSize = "100px";
+    var w = el.scrollWidth;
+    el.style.display = "";
+    if (w > 0) el.style.fontSize = (100 * cw / w) + "px";
+  });
+}
+fitGiants();
+window.addEventListener("resize", fitGiants);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitGiants);
+
+/* ---------- menu ---------- */
+var btn = document.getElementById("menuBtn"), ov = document.getElementById("overlay");
+function toggleMenu(force){
+  var open = typeof force === "boolean" ? force : !ov.classList.contains("open");
+  ov.classList.toggle("open", open);
+  ov.setAttribute("aria-hidden", open ? "false" : "true");
+  btn.setAttribute("aria-expanded", open ? "true" : "false");
+  btn.firstChild.textContent = open ? "Close " : "Menu ";
+}
+btn.addEventListener("click", function(){ toggleMenu(); });
+ov.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", function(){ toggleMenu(false); }); });
+document.addEventListener("keydown", function(e){ if (e.key === "Escape") toggleMenu(false); });
+
+/* ---------- gentle reveal ---------- */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+},{threshold:.12});
+document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
