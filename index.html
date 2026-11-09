@@ -7,6 +7,10 @@
 <link rel="icon" href="data:,">
 <title>Jatra Research Portfolio - Shangrila Joshi</title>
 <meta name="description" content="Arts of Resilience: a research portfolio on the Rato Macchindranath Jatra of Patan, Nepal, by Shangrila Joshi, PhD.">
+<meta property="og:title" content="Jatra Research Portfolio - Shangrila Joshi">
+<meta property="og:description" content="Arts of Resilience: Lessons from the Machchhindranath Jatra of Patan. Eight chapters, one festival, Patan, Nepal, 2081 (2024).">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
@@ -52,6 +56,8 @@ body{
 a{color:inherit}
 img{max-width:100%}
 
+/* ---------- scroll progress, thin hairline ---------- */
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--red);z-index:70}
 /* ---------- fixed nav, as on the reference ---------- */
 .nav{
   position:fixed;inset:0 0 auto 0;z-index:60;
@@ -170,7 +176,14 @@ figure.ph figcaption .cap-sub{font-size:12px;color:var(--ink-soft);margin-top:3p
 .idx-row:hover .idx-title{color:var(--red)}
 
 /* ---------- chapters ---------- */
-.chapter{padding:110px var(--pad) 30px}
+.chapter{padding:110px var(--pad) 30px;scroll-margin-top:60px}
+.index-sec,.albums{scroll-margin-top:60px}
+.chapter .eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.chapter .photo-count{font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:16px}
+.chapter .chap-nav{display:flex;justify-content:space-between;gap:16px;align-items:baseline;max-width:760px;margin:72px auto 0;padding-top:18px;border-top:2px solid var(--ink);font-family:var(--serif);font-size:clamp(19px,2vw,24px);font-weight:600}
+.chapter .chap-nav a{text-decoration:none}
+.chapter .chap-nav a:hover{color:var(--red)}
+.chapter .chap-nav .cn-label{display:block;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}
 .chapter .giant{margin-left:-4px}
 .meta-row{
   display:flex;align-items:baseline;gap:16px;margin-top:14px;
@@ -254,6 +267,8 @@ blockquote.voice footer{margin-top:20px;font-family:var(--sans);font-size:12px;f
 </style>
 </head>
 <body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<noscript><p style="padding:100px 24px 0;text-align:center;font-family:Georgia,serif">This portfolio renders its eight chapters with JavaScript. Please enable JavaScript to read the chapters and see the photograph frames.</p></noscript>
 
 <header class="nav">
   <a class="brand" href="#top">Shangrila Joshi<span>The Evergreen State College</span></a>
@@ -291,7 +306,7 @@ blockquote.voice footer{margin-top:20px;font-family:var(--sans);font-size:12px;f
   <section class="intro rv">
     <p>The tangible impacts of a changing climate have become more pronounced in recent years, and the implications for the Himalaya are significant: more frequent and intense droughts, weather and agricultural anomalies, and consequences for water, food, and livelihood security. Mountain communities are particularly vulnerable, dependent as they are on rapidly melting glaciers for drinking water and agriculture.</p>
     <p>This portfolio follows one answer that is already more than a thousand years old. Among the cultural practices of the Newa, the Indigenous people of the Kathmandu Valley, is the Machchhindranath Jatra: a months-long annual festival celebrated to thwart catastrophic drought and famine, and a living record of how a community organises itself to survive catastrophe, together.</p>
-    <p>The photographs were taken by the author during the Jatra of Nepali year 2081 (2024) in Patan, also known as Lalitpur. They are held in three public albums on Facebook; each frame in this portfolio carries the description recorded during the review of those albums and links to the photograph itself.</p>
+    <p>The photographs were taken by the author during the Jatra of Nepali year 2081 (2024) in Patan, also known as Lalitpur. They are held in three public albums on Facebook; each frame in this portfolio carries the description recorded during the review of those albums and, where one was recorded, links to the photograph itself. A small number of frames have no individual link recorded, and are marked as held in the album.</p>
   </section>
 
   <p class="statement rv">&ldquo;How does the Machchhindranath Jatra teach us to be resilient in the face of a changing climate?&rdquo;
@@ -310,6 +325,7 @@ blockquote.voice footer{margin-top:20px;font-family:var(--sans);font-size:12px;f
   <!-- ALBUMS -->
   <section class="albums rv">
     <h2>The fieldwork albums - photographs by Shangrila Joshi</h2>
+    <p style="font-family:var(--serif);font-size:17px;color:var(--ink-soft);margin-top:10px">623 photographs across three public albums on Facebook.</p>
     <a class="album-row" href="https://www.facebook.com/share/18nexstt2w/" target="_blank" rel="noopener">
       <span class="a-name">Album 1 - Chariot building</span><span class="dots"></span><span class="a-meta">241 photographs - Facebook</span>
     </a>
@@ -498,36 +514,44 @@ var CHAPTERS = [
 ];
 
 /* ---------- rendering ---------- */
-function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
 var AR = ["ar-tall","ar-wide","ar-sq","ar-wide","ar-tall","ar-sq"];
 
 function plateHTML(p, idx){
   var link = p.url
     ? '<a class="p-link" href="'+p.url+'" target="_blank" rel="noopener">View the photograph <span aria-hidden="true">&#8599;</span></a>'
-    : '<span class="p-nolink">Frame held - individual link not recorded</span>';
+    : '<span class="p-nolink">Held in the album - no individual link recorded</span>';
   return '<div class="plate '+AR[idx%AR.length]+'">'
     + '<div class="p-top"><span>'+esc(ALBUM_NAMES[p.album])+'</span><span>'+esc(p.pos)+'</span></div>'
     + '<div><div class="p-num" aria-hidden="true">'+(idx+1)+'</div><p class="p-desc">'+esc(p.desc)+'</p>'+link+'</div>'
     + '</div>';
 }
 function figureHTML(p, idx){
-  return '<figure class="ph rv"><div>'+plateHTML(p, idx)+'</div>'
-    + '<figcaption><div class="cap-name">'+esc(p.desc.split(",")[0])+'.</div>'
-    + '<div class="cap-sub">'+esc(ALBUM_NAMES[p.album])+' - '+esc(p.pos)+'</div></figcaption></figure>';
+  plateNo += 1;
+  return '<figure class="ph rv"><div>'+plateHTML(p, plateNo - 1)+'</div>'
+    + '<figcaption><div class="cap-sub">'+esc(ALBUM_NAMES[p.album])+' - '+esc(p.pos)+'</div></figcaption></figure>';
 }
 
 var root = document.getElementById("chaptersRoot");
 var indexList = document.getElementById("indexList");
 var overlayNav = document.getElementById("overlayNav");
 var html = "";
+var plateNo = 0; /* one running number for every photograph frame in the portfolio */
 
 CHAPTERS.forEach(function(ch){
   indexList.innerHTML += '<a class="idx-row" href="#chapter-'+ch.n.replace(/^0/,"")+'"><span class="idx-no">'+ch.n+'</span><span class="idx-title">'+esc(ch.title.charAt(0)+ch.title.slice(1).toLowerCase())+'</span><span class="idx-dots"></span><span class="idx-meta">'+esc(ch.indexMeta)+'</span></a>';
   overlayNav.innerHTML += '<a href="#chapter-'+ch.n.replace(/^0/,"")+'">'+esc(ch.title.charAt(0)+ch.title.slice(1).toLowerCase())+'<small>Chapter '+ch.n+'</small></a>';
 
+  var chIdx = CHAPTERS.indexOf(ch);
+  var photoCount = (ch.photos && ch.photos.length) || 0;
+  var photoAlbums = [];
+  if (ch.photos) ch.photos.forEach(function(p){ if (photoAlbums.indexOf(p.album) === -1) photoAlbums.push(p.album); });
+  var photoLine = photoCount ? photoCount + (photoCount === 1 ? " photograph" : " photographs") + (photoAlbums.length ? ", Album" + (photoAlbums.length > 1 ? "s " : " ") + photoAlbums.join(" and ") : "") : "";
   html += '<section class="chapter" id="chapter-'+ch.n.replace(/^0/,"")+'">'
+    + '<p class="eyebrow">Chapter '+ch.n+' of 08</p>'
     + '<h2 class="giant" data-fit>'+esc(ch.title)+'</h2>'
     + '<div class="meta-row"><span>'+esc(ch.metaLeft)+'</span><span class="dots"></span><span class="right">'+esc(ch.metaRight)+'</span></div>'
+    + (photoLine ? '<p class="photo-count">'+esc(photoLine)+'</p>' : '')
     + '<div class="body"><p class="lede">'+esc(ch.lede)+'</p>'
     + ch.body.map(function(p){return '<p>'+esc(p)+'</p>';}).join("")
     + '</div>';
@@ -552,6 +576,12 @@ CHAPTERS.forEach(function(ch){
     var cls = ch.photos.length <= 4 ? "c2" : "c3";
     html += '<div class="pgrid '+cls+'">' + ch.photos.map(figureHTML).join("") + '</div>';
   }
+  var next = CHAPTERS[chIdx + 1];
+  if (next){
+    html += '<nav class="chap-nav"><span></span><a href="#chapter-'+next.n.replace(/^0/,"")+'"><span class="cn-label">Next chapter</span>'+esc(next.title.charAt(0)+next.title.slice(1).toLowerCase())+' &#8594;</a></nav>';
+  } else {
+    html += '<nav class="chap-nav"><a href="#chapters"><span class="cn-label">Back to</span>All eight chapters &#8593;</a><a href="#top"><span class="cn-label">Back to</span>Top &#8593;</a></nav>';
+  }
   html += '</section>';
 });
 root.innerHTML = html;
@@ -559,7 +589,7 @@ root.innerHTML = html;
 /* hero plate = the sun-flare spire photograph, Chapter 1, photo 1 */
 document.getElementById("heroPlate").innerHTML =
   '<div class="p-top"><span>Album 3 - Rath Yatra procession</span><span>First photograph</span></div>'
-  + '<div><div class="p-num" aria-hidden="true">1</div><p class="p-desc">Towering chariot spire silhouetted against a low sun with lens flare, carved face at its base, Patan rooftops behind.</p>'
+  + '<div><div class="p-num" aria-hidden="true" style="font-size:clamp(28px,3vw,44px);-webkit-text-stroke:0;color:rgba(237,233,219,.85)">Featured</div><p class="p-desc">Towering chariot spire silhouetted against a low sun with lens flare, carved face at its base, Patan rooftops behind.</p>'
   + '<a class="p-link" href="https://www.facebook.com/photo/?fbid=10160717667394930&set=a.10160717440079930" target="_blank" rel="noopener">View the photograph <span aria-hidden="true">&#8599;</span></a></div>';
 
 /* ---------- fit giant titles to full width, as on the reference ---------- */
@@ -576,6 +606,14 @@ function fitGiants(){
 }
 fitGiants();
 window.addEventListener("resize", fitGiants);
+var prog = document.getElementById("progress");
+function setProgress(){
+  var h = document.documentElement;
+  var max = h.scrollHeight - h.clientHeight;
+  prog.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+}
+window.addEventListener("scroll", setProgress, {passive:true});
+setProgress();
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitGiants);
 
 /* ---------- menu ---------- */
